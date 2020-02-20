@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <classPathEntry
+          location="C:/Users/Jack/.m2/repository/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar"/>
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <commentGenerator>
+      <property name="suppressDate" value="true"/>
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    <jdbcConnection
+            driverClass="com.mysql.cj.jdbc.Driver"
+            connectionURL="jdbc:mysql://localhost:3306/recruitment?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"
+            userId="root"
+            password="tyler0131">
+      <property name="serverTimezone" value="UTC"/>
+      <property name="nullCatalogMeansCurrent" value="true"/>
+    </jdbcConnection>
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+    <javaModelGenerator targetPackage="com.recruit.recruitment.model.pojo" targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.recruit.recruitment.mapper"
+                         targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+<!--    <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"-->
+<!--           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--    </table>-->
+<!--    <table tableName="resume" domainObjectName="Resume" enableCountByExample="false" enableUpdateByExample="false"-->
+<!--           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--      <columnOverride column="statement" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--      <columnOverride column="edudescript" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--    </table>-->
+<!--    <table tableName="role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false"-->
+<!--           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--    </table>-->
+<!--    <table tableName="job" domainObjectName="Job" enableCountByExample="false" enableUpdateByExample="false"-->
+<!--           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--      <columnOverride column="jobdescript" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--    </table>-->
+<!--    <table tableName="company" domainObjectName="Company" enableCountByExample="false" enableUpdateByExample="false"-->
+<!--           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--    <table tableName="post" domainObjectName="Post" enableCountByExample="false" enableUpdateByExample="false"-->
+<!--           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--      <columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--      <columnOverride column="criteria" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--    </table>-->
+<!--    <table tableName="application" domainObjectName="Application" enableCountByExample="false"-->
+<!--           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--           selectByExampleQueryId="false"></table>-->
+<!--    <table tableName="score" domainObjectName="Score" enableCountByExample="false"-->
+<!--           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--           selectByExampleQueryId="false"></table>-->
+<!--    <table tableName="evaluator" domainObjectName="Evaluator" enableCountByExample="false"-->
+<!--           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--           selectByExampleQueryId="false">-->
+<!--      <columnOverride column="evaluatorname" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--    </table>-->
+<!--    <table tableName="notification" domainObjectName="Notification" enableCountByExample="false"-->
+<!--           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--           selectByExampleQueryId="false">-->
+<!--      <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--    </table>-->
+<!--    <table tableName="discussion" domainObjectName="Discussion" enableCountByExample="false"-->
+<!--           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--           selectByExampleQueryId="false">-->
+<!--      <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--      <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--    </table>-->
+  </context>
+</generatorConfiguration>

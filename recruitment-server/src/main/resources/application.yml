@@ -1,0 +1,83 @@
+server:
+  port: 8080
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.recruit.recruitment.model.pojo
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+
+jwt:
+  time: 864000
+  secret: "E70F5D96F20C4806928062717FBD339E3AB76D2B00431ACBB6912A88D24E9E29"
+  prefix: "Bearer "
+  header: "Authorization"
+
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  mail:
+    host: smtp-mail.outlook.com
+    port: 587
+    username: jack870131@outlook.com
+    password: tyler870131
+    default-encoding: UTF-8
+    properties:
+      mail:
+        protocol: smtp
+        tls: true
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp-mail.outlook.com
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.208.24.179:3306/recruitment?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: tyler0131
+    druid:
+      initialSize: 1
+      minIdle: 1
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+  rabbitmq:
+    dynamic: true
+    host: 8.208.24.179
+    port: 5672
+    username: admin
+    password: admin
+  redis:
+    host: 8.208.24.179
+    port: 6379
+    timeout: 1000
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 8
+        min-idle: 2
+        max-wait: 100
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 8.208.24.179:9300
+      repositories:
+        enabled: true
+  jmx:
+    enabled: false
