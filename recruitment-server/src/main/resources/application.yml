@@ -26,7 +26,7 @@ spring:
   mail:
     host: smtp-mail.outlook.com
     port: 587
-    username: jack870131@outlook.com
+    username: recruitment-go@outlook.com
     password: tyler870131
     default-encoding: UTF-8
     properties:
@@ -73,6 +73,7 @@ spring:
         max-idle: 8
         min-idle: 2
         max-wait: 100
+    password: tyler0131
   data:
     elasticsearch:
       cluster-name: elasticsearch

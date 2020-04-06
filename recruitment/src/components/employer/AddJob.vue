@@ -71,7 +71,7 @@
                     id="salaryType"
                     v-model="salarytype"
                   >
-                    <option selected value="Per Year">/Year</option>
+                    <option value="Per Year">/Year</option>
                     <option value="Per Month">/Month</option>
                     <option value="Per Day">/Day</option>
                     <option value="Per Hour">/Hour</option>
@@ -85,7 +85,7 @@
                         class="dropdown-product selectpicker"
                         v-model="category"
                       >
-                        <option value="Finance" selected>Finance</option>
+                        <option value="Finance">Finance</option>
                         <option value="IT/Engineering">IT/Engineering</option>
                         <option value="Education/Training"
                           >Education/Training</option
@@ -144,7 +144,7 @@
                     v-model="evaluator"
                     :tags="evaluators"
                     @tags-changed="
-                      newEvaluators => (evaluators = newEvaluators)
+                      (newEvaluators) => (evaluators = newEvaluators)
                     "
                   />
                 </div>
@@ -192,15 +192,15 @@ export default {
       jobname: "",
       companyname: "",
       location: "",
-      category: "",
+      category: "Finance",
       salary: "",
-      salarytype: "",
+      salarytype: "Per Year",
       description: "",
       criteria: "",
       picknum: "",
       due: "",
       evaluator: "",
-      evaluators: []
+      evaluators: [],
     };
   },
   methods: {
@@ -219,7 +219,7 @@ export default {
       ) {
         this.$message({
           message: "Incomplete info",
-          type: "error"
+          type: "error",
         });
         return;
       }
@@ -237,19 +237,19 @@ export default {
           this.due,
           this.evaluators
         )
-        .then(res => {
+        .then((res) => {
           this.$alert("Add job successful", "Hint", {
             confirmButtonText: "Confirm",
-            callback: action => {
+            callback: (action) => {
               if (action == "confirm") {
                 this.$router.push({
-                  path: "/manage-job"
+                  path: "/manage-job",
                 });
               }
-            }
+            },
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>

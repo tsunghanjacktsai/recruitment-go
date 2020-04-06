@@ -9,7 +9,7 @@
             <div class="contents">
               <h2 class="head-title">
                 Welcome to<br />
-                Recruitment-GO
+                Recruitment Go
               </h2>
               <div class="job-search-form">
                 <form>

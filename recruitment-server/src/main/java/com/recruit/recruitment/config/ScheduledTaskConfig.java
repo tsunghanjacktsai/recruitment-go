@@ -1,10 +1,7 @@
 package com.recruit.recruitment.config;
 
 import com.recruit.recruitment.mapper.*;
-import com.recruit.recruitment.model.pojo.Application;
-import com.recruit.recruitment.model.pojo.Evaluator;
-import com.recruit.recruitment.model.pojo.Notification;
-import com.recruit.recruitment.model.pojo.Post;
+import com.recruit.recruitment.model.pojo.*;
 import com.recruit.recruitment.service.ApplicationService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +50,8 @@ public class ScheduledTaskConfig {
         if (formatter.parse(post.getDue()).compareTo(curDate) <= 0) {
           List<Application> applications =
             applicationService.findApplicationsByPostid(post.getPostid());
-
-          System.out.println("Hello");
-
           if (applications != null) {
             applications.sort(Comparator.comparing(Application::getScoreavg).reversed());
-
             HashMap<String, Integer> map = new HashMap<>();
             for (int i = 0; i < post.getPicknum(); i++) {
               double scoreAvg = applications.get(i).getScoreavg().doubleValue();
@@ -87,12 +80,15 @@ public class ScheduledTaskConfig {
           }
 
           List<String> evaluators = evaluatorMapper.selectEvaluatorNameByPostid(post.getPostid());
-          for (String evaluator : evaluators) {
-            Notification notification = new Notification();
-            notification.setUserid(userMapper.selectByUsername(evaluator).getUserid());
-            notification.setContent(
-              "The result of " + post.getJobname() + " at " + post.getCompanyname() + " had been sent to candidates");
-            notificationMapper.insertSelective(notification);
+          for (String evaluatorName : evaluators) {
+            User evaluator = userMapper.selectByUsername(evaluatorName);
+            if (evaluator != null) {
+              Notification notification = new Notification();
+              notification.setUserid(evaluator.getUserid());
+              notification.setContent(
+                "The result of " + post.getJobname() + " at " + post.getCompanyname() + " had been sent to candidates");
+              notificationMapper.insertSelective(notification);
+            }
           }
 
           postMapper.deleteByPrimaryKey(post.getPostid());
