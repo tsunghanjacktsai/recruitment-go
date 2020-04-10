@@ -1,0 +1,4 @@
+[MASTER] 15:03:49.827 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\Jack\Documents\Java\recruitment-go\recruitment-server\.evosuite\evosuite-seeds\com.recruit.recruitment.serviceImpl.UserServiceImpl.seed
+[MASTER] 15:04:07.673 [pool-2-thread-1] WARN  TestFactory - Bounded variable issue when calling createVariable()
+[MASTER] 15:04:24.908 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: No objects and generators for type class com.recruit.recruitment.serviceImpl.UserServiceImpl
+[MASTER] 15:04:25.538 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class com.recruit.recruitment.model.pojo.User canUseFunctionalMocks=false, canBeMocked: true
