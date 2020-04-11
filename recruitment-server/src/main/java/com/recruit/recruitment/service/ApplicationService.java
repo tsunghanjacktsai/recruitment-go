@@ -9,6 +9,8 @@ public interface ApplicationService {
 
   void deleteApplication(Integer applicationid);
 
+  boolean checkIfEvaluators(Integer postid);
+
   boolean checkIfApplied(Integer postid);
 
   Application findApplicationByApplicationid(Integer applicationid);

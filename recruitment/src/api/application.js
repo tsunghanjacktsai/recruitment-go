@@ -8,6 +8,12 @@ export default {
       method: "put"
     });
   },
+  checkIfEvaluators(postid) {
+    return request({
+      url: "/application/check-if-evaluators/" + postid,
+      method: "get"
+    });
+  },
   checkIfApplied(postid) {
     return request({
       url: "/application/check-if-applied/" + postid,

@@ -23,6 +23,16 @@ public class ApplicationController {
     }
   }
 
+  @GetMapping("/check-if-evaluators/{postid}")
+  public Result checkIfEvaluators(@PathVariable Integer postid) {
+    try {
+      return Result.create(StatusCode.SUCCESS, "Query successful",
+        applicationService.checkIfEvaluators(postid));
+    } catch (RuntimeException e) {
+      return Result.create(StatusCode.ERROR, "Query failed");
+    }
+  }
+
   @GetMapping("/check-if-applied/{postid}")
   public Result checkIfApplied(@PathVariable Integer postid) {
     try {

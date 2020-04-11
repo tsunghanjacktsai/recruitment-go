@@ -33,7 +33,7 @@ public class EvaluatorServiceImpl implements EvaluatorService {
   }
 
   @Override
-  public List<String> findEvaluatorsByPostid(Integer postid) {
+  public List<String> findEvaluatorsByPostidWithoutUser(Integer postid) {
     User user = userMapper.selectByUsername(jwtTokenUtil.getUsernameFromRequest(request));
     List<String> evaluators = evaluatorMapper.selectEvaluatorNameByPostid(postid);
     for (int i = 0; i < evaluators.size(); i++) {
@@ -42,5 +42,10 @@ public class EvaluatorServiceImpl implements EvaluatorService {
       }
     }
     return evaluators;
+  }
+
+  @Override
+  public List<String> findEvaluatorsByPostidWithUser(Integer postid) {
+    return evaluatorMapper.selectEvaluatorNameByPostid(postid);
   }
 }

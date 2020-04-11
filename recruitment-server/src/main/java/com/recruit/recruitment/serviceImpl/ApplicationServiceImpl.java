@@ -4,6 +4,7 @@ import com.recruit.recruitment.config.RabbitMqConfig;
 import com.recruit.recruitment.mapper.*;
 import com.recruit.recruitment.model.pojo.*;
 import com.recruit.recruitment.service.ApplicationService;
+import com.recruit.recruitment.service.EvaluatorService;
 import com.recruit.recruitment.service.ScoreService;
 import com.recruit.recruitment.utils.JwtTokenUtil;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -33,6 +34,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
   @Autowired
   private ScoreService scoreService;
+
+  @Autowired
+  private EvaluatorService evaluatorService;
 
   @Autowired
   private ScoreMapper scoreMapper;
@@ -71,6 +75,20 @@ public class ApplicationServiceImpl implements ApplicationService {
   @Override
   public void deleteApplication(Integer applicationid) {
     applicationMapper.deleteByPrimaryKey(applicationid);
+  }
+
+  @Override
+  public boolean checkIfEvaluators(Integer postid) {
+    boolean disableApplyButton = false;
+    User user = userMapper.selectByUsername(
+      jwtTokenUtil.getUsernameFromRequest(request));
+    List<String> evaluators = evaluatorService.findEvaluatorsByPostidWithUser(postid);
+    for (String evaluator : evaluators) {
+      if (evaluator.equals(user.getUsername())) {
+        disableApplyButton = true;
+      }
+    }
+    return disableApplyButton;
   }
 
   @Override

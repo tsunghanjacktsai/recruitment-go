@@ -120,6 +120,9 @@ export default {
   },
   methods: {
     loadPost() {
+      application.checkIfEvaluators(this.postid).then(res => {
+        this.disApply = res.data;
+      });
       application.checkIfApplied(this.postid).then(res => {
         this.disApply = res.data;
       });

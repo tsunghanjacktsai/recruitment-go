@@ -6,9 +6,9 @@
 package com.recruit.recruitment.controller;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import static org.evosuite.shaded.org.mockito.Mockito.*;
-import com.recruit.recruitment.controller.EvaluatorController;
+
 import com.recruit.recruitment.service.EvaluatorService;
 import java.util.List;
 import org.evosuite.runtime.EvoRunner;
@@ -34,7 +34,7 @@ public class EvaluatorController_ESTest extends EvaluatorController_ESTest_scaff
   public void test1()  throws Throwable  {
       EvaluatorController evaluatorController0 = new EvaluatorController();
       EvaluatorService evaluatorService0 = mock(EvaluatorService.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(evaluatorService0).findEvaluatorsByPostid(anyInt());
+      doReturn((List) null).when(evaluatorService0).findEvaluatorsByPostidWithoutUser(anyInt());
       Injector.inject(evaluatorController0, (Class<?>) EvaluatorController.class, "evaluatorService", (Object) evaluatorService0);
       Injector.validateBean(evaluatorController0, (Class<?>) EvaluatorController.class);
       evaluatorController0.getEvaluatorsByPostid((Integer) null);
@@ -54,7 +54,7 @@ public class EvaluatorController_ESTest extends EvaluatorController_ESTest_scaff
   public void test3()  throws Throwable  {
       EvaluatorController evaluatorController0 = new EvaluatorController();
       EvaluatorService evaluatorService0 = mock(EvaluatorService.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(evaluatorService0).findEvaluatorsByPostid(anyInt());
+      doReturn((List) null).when(evaluatorService0).findEvaluatorsByPostidWithoutUser(anyInt());
       Injector.inject(evaluatorController0, (Class<?>) EvaluatorController.class, "evaluatorService", (Object) evaluatorService0);
       Injector.validateBean(evaluatorController0, (Class<?>) EvaluatorController.class);
       evaluatorController0.getEvaluatorsByPostid((Integer) null);

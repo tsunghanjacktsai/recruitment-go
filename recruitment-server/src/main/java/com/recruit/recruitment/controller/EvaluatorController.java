@@ -19,7 +19,7 @@ public class EvaluatorController {
   public Result getEvaluatorsByPostid(@PathVariable Integer postid) {
     try {
       return Result.create(StatusCode.SUCCESS, "Query successful",
-        evaluatorService.findEvaluatorsByPostid(postid));
+        evaluatorService.findEvaluatorsByPostidWithoutUser(postid));
     } catch (RuntimeException e) {
       return Result.create(StatusCode.ERROR, "Query failed");
     }

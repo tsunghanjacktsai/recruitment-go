@@ -13,7 +13,6 @@ import com.recruit.recruitment.mapper.EvaluatorMapper;
 import com.recruit.recruitment.mapper.UserMapper;
 import com.recruit.recruitment.model.pojo.Evaluator;
 import com.recruit.recruitment.model.pojo.User;
-import com.recruit.recruitment.serviceImpl.EvaluatorServiceImpl;
 import com.recruit.recruitment.utils.JwtTokenUtil;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +43,7 @@ public class EvaluatorServiceImpl_ESTest extends EvaluatorServiceImpl_ESTest_sca
       Integer integer0 = new Integer((-2234));
       // Undeclared exception!
       try { 
-        evaluatorServiceImpl0.findEvaluatorsByPostid(integer0);
+        evaluatorServiceImpl0.findEvaluatorsByPostidWithoutUser(integer0);
         fail("Expecting exception: NullPointerException");
       
       } catch(NullPointerException e) {
