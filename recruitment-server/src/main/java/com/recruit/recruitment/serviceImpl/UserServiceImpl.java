@@ -1,6 +1,5 @@
 package com.recruit.recruitment.serviceImpl;
 
-import com.github.pagehelper.PageHelper;
 import com.recruit.recruitment.config.JwtConfig;
 import com.recruit.recruitment.config.MailConfig;
 import com.recruit.recruitment.config.RabbitMqConfig;
@@ -82,7 +81,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     List<Role> roles = new ArrayList<>(1);
-    roles.add(roleService.findRoleByName("USER"));
+    roles.add(roleService.findRoleByRoleName("USER"));
     user.setRoles(roles); // user granted with USER authority
 
     final String rawpassword = user.getPassword();
@@ -160,22 +159,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
   }
 
   @Override
-  public User findUser(Integer userid) {
-    return userMapper.selectByPrimaryKey(userid);
-  }
-
-  @Override
-  public List<User> findAllUsers(String orderby) {
-    PageHelper.orderBy(orderby);
-    return userMapper.selectAll();
-  }
-
-  @Override
-  public int updateUser(User user) {
-    return userMapper.updateByPrimaryKeySelective(user);
-  }
-
-  @Override
   public UserDetails loadUserByUsername(String username) {
     User user = userMapper.selectByUsername(username);
     List<SimpleGrantedAuthority> authorities = new ArrayList<>(1);
@@ -210,8 +193,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     return new org.springframework.security.core.userdetails.User(user.getUsername(), "***********", authorities);
   }
 
-  @Override
-  public boolean checkMailCode(String mail, String code) {
+  private boolean checkMailCode(String mail, String code) {
     String mailCode = getMailCodeFromRedis(mail);
     return code.equals(mailCode) ? true : false;
   }

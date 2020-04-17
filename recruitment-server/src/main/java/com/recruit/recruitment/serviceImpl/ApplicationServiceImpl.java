@@ -82,7 +82,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     boolean disableApplyButton = false;
     User user = userMapper.selectByUsername(
       jwtTokenUtil.getUsernameFromRequest(request));
-    List<String> evaluators = evaluatorService.findEvaluatorsByPostidWithUser(postid);
+    List<String> evaluators = evaluatorService.findEvaluatorsWithCurrentUser(postid);
     for (String evaluator : evaluators) {
       if (evaluator.equals(user.getUsername())) {
         disableApplyButton = true;

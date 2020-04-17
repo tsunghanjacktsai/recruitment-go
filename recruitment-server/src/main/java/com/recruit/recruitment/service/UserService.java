@@ -47,30 +47,6 @@ public interface UserService {
   void forgetPassword(String userName, String newPassword, String mailCode);
 
   /**
-   * Find the user by userid
-   *
-   * @param userid
-   * @return
-   */
-  User findUser(Integer userid);
-
-  /**
-   * Find all users
-   *
-   * @param orderby
-   * @return
-   */
-  List<User> findAllUsers(String orderby);
-
-  /**
-   * Update user info
-   *
-   * @param user
-   * @return
-   */
-  int updateUser(User user);
-
-  /**
    * Load user by token
    *
    * @param authHeader
@@ -78,14 +54,6 @@ public interface UserService {
    */
   UserDetails loadUserByToken(String authHeader);
 
-  /**
-   * Validate mailcode
-   *
-   * @param mail
-   * @param code
-   * @return
-   */
-  boolean checkMailCode(String mail, String code);
 
   /**
    * Get mail code from Redis

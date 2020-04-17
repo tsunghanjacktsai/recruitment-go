@@ -7,7 +7,7 @@ import java.util.List;
 public interface EvaluatorService {
   void addEvaluator(Evaluator evaluator);
 
-  List<String> findEvaluatorsByPostidWithoutUser(Integer postid);
+  List<String> findEvaluatorsWithoutCurrentUser(Integer postid);
 
-  List<String> findEvaluatorsByPostidWithUser(Integer postid);
+  List<String> findEvaluatorsWithCurrentUser(Integer postid);
 }

@@ -43,7 +43,7 @@ public class EvaluatorServiceImpl_ESTest extends EvaluatorServiceImpl_ESTest_sca
       Integer integer0 = new Integer((-2234));
       // Undeclared exception!
       try { 
-        evaluatorServiceImpl0.findEvaluatorsByPostidWithoutUser(integer0);
+        evaluatorServiceImpl0.findEvaluatorsWithoutCurrentUser(integer0);
         fail("Expecting exception: NullPointerException");
       
       } catch(NullPointerException e) {

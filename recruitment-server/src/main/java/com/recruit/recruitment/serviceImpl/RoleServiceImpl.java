@@ -14,7 +14,7 @@ public class RoleServiceImpl implements RoleService {
   private RoleMapper roleMapper;
 
   @Override
-  public Role findRoleByName(String roleName) {
+  public Role findRoleByRoleName(String roleName) {
     return roleMapper.selectByRoleName(roleName);
   }
 

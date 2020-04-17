@@ -149,7 +149,7 @@ export default {
   },
   methods: {
     loadResume() {
-      resume.getResumeByResumeId(this.resumeid).then(res => {
+      resume.getResumeByResumeid(this.resumeid).then(res => {
         this.name = res.data.name;
         this.intention = res.data.intention;
         this.location = res.data.location;

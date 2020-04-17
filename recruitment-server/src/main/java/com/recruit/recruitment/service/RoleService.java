@@ -12,7 +12,7 @@ public interface RoleService {
    * @param roleName
    * @return
    */
-  Role findRoleByName(String roleName);
+  Role findRoleByRoleName(String roleName);
 
   /**
    * Find all roles

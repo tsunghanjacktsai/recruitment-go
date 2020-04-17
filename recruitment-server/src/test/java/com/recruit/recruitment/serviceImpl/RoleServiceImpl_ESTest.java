@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import com.recruit.recruitment.mapper.RoleMapper;
 import com.recruit.recruitment.model.pojo.Role;
-import com.recruit.recruitment.serviceImpl.RoleServiceImpl;
+
 import java.util.List;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
@@ -30,7 +30,7 @@ public class RoleServiceImpl_ESTest extends RoleServiceImpl_ESTest_scaffolding {
       doReturn(role0).when(roleMapper0).selectByRoleName(anyString());
       Injector.inject(roleServiceImpl0, (Class<?>) RoleServiceImpl.class, "roleMapper", (Object) roleMapper0);
       Injector.validateBean(roleServiceImpl0, (Class<?>) RoleServiceImpl.class);
-      Role role1 = roleServiceImpl0.findRoleByName("");
+      Role role1 = roleServiceImpl0.findRoleByRoleName("");
       assertNull(role1.getRolename());
   }
 
@@ -63,7 +63,7 @@ public class RoleServiceImpl_ESTest extends RoleServiceImpl_ESTest_scaffolding {
       doReturn((Role) null).when(roleMapper0).selectByRoleName(anyString());
       Injector.inject(roleServiceImpl0, (Class<?>) RoleServiceImpl.class, "roleMapper", (Object) roleMapper0);
       Injector.validateBean(roleServiceImpl0, (Class<?>) RoleServiceImpl.class);
-      Role role0 = roleServiceImpl0.findRoleByName("8X^BS),HVQiPQNy}'np");
+      Role role0 = roleServiceImpl0.findRoleByRoleName("8X^BS),HVQiPQNy}'np");
       assertNull(role0);
   }
 }
