@@ -14,7 +14,6 @@ import com.recruit.recruitment.mapper.NotificationMapper;
 import com.recruit.recruitment.mapper.UserMapper;
 import com.recruit.recruitment.model.pojo.Discussion;
 import com.recruit.recruitment.model.pojo.User;
-import com.recruit.recruitment.serviceImpl.DiscussionServiceImpl;
 import com.recruit.recruitment.utils.JwtTokenUtil;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -167,7 +166,7 @@ public class DiscussionServiceImpl_ESTest extends DiscussionServiceImpl_ESTest_s
       doReturn(user0).when(userMapper0).selectByPrimaryKey(anyInt());
       Injector.inject(discussionServiceImpl0, (Class<?>) DiscussionServiceImpl.class, "userMapper", (Object) userMapper0);
       Injector.validateBean(discussionServiceImpl0, (Class<?>) DiscussionServiceImpl.class);
-      List<String> list0 = discussionServiceImpl0.findReceiverByReplytoid(integer0);
+      List<String> list0 = discussionServiceImpl0.findReceiversBySenderid(integer0);
       assertFalse(list0.contains("jwtTokenUtil"));
   }
 
@@ -315,7 +314,7 @@ public class DiscussionServiceImpl_ESTest extends DiscussionServiceImpl_ESTest_s
       Injector.inject(discussionServiceImpl0, (Class<?>) DiscussionServiceImpl.class, "request", (Object) httpServletRequest0);
       // Undeclared exception!
       try { 
-        discussionServiceImpl0.findReceiverByReplytoid(integer0);
+        discussionServiceImpl0.findReceiversBySenderid(integer0);
         fail("Expecting exception: NullPointerException");
       
       } catch(NullPointerException e) {

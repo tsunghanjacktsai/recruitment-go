@@ -13,7 +13,6 @@ import com.recruit.recruitment.mapper.JobMapper;
 import com.recruit.recruitment.mapper.UserMapper;
 import com.recruit.recruitment.model.pojo.Job;
 import com.recruit.recruitment.model.pojo.User;
-import com.recruit.recruitment.serviceImpl.JobServiceImpl;
 import com.recruit.recruitment.utils.JwtTokenUtil;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -47,11 +46,11 @@ public class JobServiceImpl_ESTest extends JobServiceImpl_ESTest_scaffolding {
       JwtTokenUtil jwtTokenUtil1 = jobServiceImpl0.jwtTokenUtil;
       jobServiceImpl0.jwtTokenUtil = jwtTokenUtil1;
       Integer integer0 = new Integer(2171);
-      jobServiceImpl0.findJobByJobid(integer0);
-      jobServiceImpl0.findJobByUserid();
+      jobServiceImpl0.findJobExpByJobid(integer0);
+      jobServiceImpl0.findJobExpByUserid();
       // Undeclared exception!
       try { 
-        jobServiceImpl0.findJobByUserid();
+        jobServiceImpl0.findJobExpByUserid();
         fail("Expecting exception: NullPointerException");
       
       } catch(NullPointerException e) {
@@ -78,7 +77,7 @@ public class JobServiceImpl_ESTest extends JobServiceImpl_ESTest_scaffolding {
       Injector.inject(jobServiceImpl0, (Class<?>) JobServiceImpl.class, "userMapper", (Object) userMapper0);
       Injector.validateBean(jobServiceImpl0, (Class<?>) JobServiceImpl.class);
       Integer integer0 = new Integer(0);
-      Job job1 = jobServiceImpl0.findJobByJobid(integer0);
+      Job job1 = jobServiceImpl0.findJobExpByJobid(integer0);
       assertNull(job1.getCompanyname());
   }
 
@@ -98,7 +97,7 @@ public class JobServiceImpl_ESTest extends JobServiceImpl_ESTest_scaffolding {
       Integer integer0 = new Integer(0);
       // Undeclared exception!
       try { 
-        jobServiceImpl0.findJobByJobid(integer0);
+        jobServiceImpl0.findJobExpByJobid(integer0);
         fail("Expecting exception: NullPointerException");
       
       } catch(NullPointerException e) {
@@ -122,7 +121,7 @@ public class JobServiceImpl_ESTest extends JobServiceImpl_ESTest_scaffolding {
       UserMapper userMapper0 = mock(UserMapper.class, new ViolatedAssumptionAnswer());
       Injector.inject(jobServiceImpl0, (Class<?>) JobServiceImpl.class, "userMapper", (Object) userMapper0);
       Injector.validateBean(jobServiceImpl0, (Class<?>) JobServiceImpl.class);
-      jobServiceImpl0.addJob((Job) null);
+      jobServiceImpl0.addJobExp((Job) null);
   }
 
   @Test(timeout = 4000)
@@ -141,7 +140,7 @@ public class JobServiceImpl_ESTest extends JobServiceImpl_ESTest_scaffolding {
       Injector.validateBean(jobServiceImpl0, (Class<?>) JobServiceImpl.class);
       // Undeclared exception!
       try { 
-        jobServiceImpl0.deleteJobByUserid();
+        jobServiceImpl0.deleteJobExpByUserid();
         fail("Expecting exception: NullPointerException");
       
       } catch(NullPointerException e) {

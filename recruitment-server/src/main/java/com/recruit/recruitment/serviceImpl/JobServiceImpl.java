@@ -27,24 +27,24 @@ public class JobServiceImpl implements JobService {
   HttpServletRequest request;
 
   @Override
-  public void addJob(Job job) {
+  public void addJobExp(Job job) {
     jobMapper.insertSelective(job);
   }
 
   @Override
-  public void deleteJobByUserid() {
+  public void deleteJobExpByUserid() {
     String username = jwtTokenUtil.getUsernameFromRequest(request);
     User user = userMapper.selectByUsername(username);
     jobMapper.deleteByUserid(user.getUserid());
   }
 
   @Override
-  public Job findJobByJobid(Integer jobid) {
+  public Job findJobExpByJobid(Integer jobid) {
     return jobMapper.selectByPrimaryKey(jobid);
   }
 
   @Override
-  public List<Job> findJobByUserid() {
+  public List<Job> findJobExpByUserid() {
     String username = jwtTokenUtil.getUsernameFromRequest(request);
     User user = userMapper.selectByUsername(username);
     return jobMapper.selectByUserid(user.getUserid());

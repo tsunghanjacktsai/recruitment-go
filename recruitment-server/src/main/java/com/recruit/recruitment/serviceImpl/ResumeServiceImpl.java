@@ -1,6 +1,5 @@
 package com.recruit.recruitment.serviceImpl;
 
-import com.recruit.recruitment.config.RedisConfig;
 import com.recruit.recruitment.mapper.ApplicationMapper;
 import com.recruit.recruitment.mapper.ResumeMapper;
 import com.recruit.recruitment.mapper.UserMapper;
@@ -66,8 +65,8 @@ public class ResumeServiceImpl implements ResumeService {
     resumeMapper.updateByPrimaryKeySelective(resume);
     if (jobs != null) {
       SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-      if (jobService.findJobByUserid() != null) {
-        jobService.deleteJobByUserid();
+      if (jobService.findJobExpByUserid() != null) {
+        jobService.deleteJobExpByUserid();
       }
       try {
         JSONArray jobArr = new JSONArray(jobs);
@@ -82,7 +81,7 @@ public class ResumeServiceImpl implements ResumeService {
           if (validateJSONObject(obj, "jobstart")) job.setJobstart(formatter.parse(obj.getString("jobstart")));
           if (validateJSONObject(obj, "jobend")) job.setJobend(formatter.parse(obj.getString("jobend")));
           if (validateJSONObject(obj, "jobdescript")) job.setJobdescript(obj.getString("jobdescript"));
-          jobService.addJob(job);
+          jobService.addJobExp(job);
         }
       } catch (JSONException | ParseException e) {
         e.printStackTrace();
@@ -90,7 +89,7 @@ public class ResumeServiceImpl implements ResumeService {
     } else {
       Job job = new Job();
       job.setUserid(user.getUserid());
-      jobService.addJob(job);
+      jobService.addJobExp(job);
     }
   }
 

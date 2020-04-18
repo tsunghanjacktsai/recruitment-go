@@ -8,7 +8,7 @@ package com.recruit.recruitment.controller;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
-import com.recruit.recruitment.controller.JobController;
+
 import com.recruit.recruitment.model.entity.Result;
 import com.recruit.recruitment.service.JobService;
 import java.util.List;
@@ -25,7 +25,7 @@ public class JobController_ESTest extends JobController_ESTest_scaffolding {
   public void test0()  throws Throwable  {
       JobController jobController0 = new JobController();
       JobService jobService0 = mock(JobService.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(jobService0).findJobByUserid();
+      doReturn((List) null).when(jobService0).findJobExpByUserid();
       Injector.inject(jobController0, (Class<?>) JobController.class, "jobService", (Object) jobService0);
       Injector.validateBean(jobController0, (Class<?>) JobController.class);
       Result result0 = jobController0.findJobByUserId();

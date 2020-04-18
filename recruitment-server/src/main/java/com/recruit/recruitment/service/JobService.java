@@ -5,11 +5,11 @@ import com.recruit.recruitment.model.pojo.Job;
 import java.util.List;
 
 public interface JobService {
-  void addJob(Job job);
+  void addJobExp(Job job);
 
-  void deleteJobByUserid();
+  void deleteJobExpByUserid();
 
-  Job findJobByJobid(Integer jobid);
+  Job findJobExpByJobid(Integer jobid);
 
-  List<Job> findJobByUserid();
+  List<Job> findJobExpByUserid();
 }

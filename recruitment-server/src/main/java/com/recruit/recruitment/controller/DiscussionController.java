@@ -37,7 +37,7 @@ public class DiscussionController {
   public Result getReceiverByReplytoid(@PathVariable Integer replytoid) {
     try {
       return Result.create(StatusCode.SUCCESS, "Query successful",
-        discussionService.findReceiverByReplytoid(replytoid));
+        discussionService.findReceiversBySenderid(replytoid));
     } catch (RuntimeException e) {
       return Result.create(StatusCode.ERROR, "Query failed");
     }

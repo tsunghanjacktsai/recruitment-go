@@ -115,9 +115,9 @@ public class DiscussionServiceImpl implements DiscussionService {
   }
 
   @Override
-  public List<String> findReceiverByReplytoid(Integer replytoid) {
+  public List<String> findReceiversBySenderid(Integer senderid) {
     List<String> receivers = new ArrayList<>();
-    receivers.add((userMapper.selectByPrimaryKey(replytoid).getUsername()));
+    receivers.add((userMapper.selectByPrimaryKey(senderid).getUsername()));
     return receivers;
   }
 }

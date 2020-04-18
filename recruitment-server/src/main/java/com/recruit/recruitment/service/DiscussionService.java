@@ -9,5 +9,5 @@ public interface DiscussionService {
 
   Discussion findDiscussionByNotificationid(Integer notificationid);
 
-  List<String> findReceiverByReplytoid(Integer replytoid);
+  List<String> findReceiversBySenderid(Integer senderid);
 }

@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     resumeService.addResume(resume);
     Job job = new Job();
     job.setUserid(user.getUserid());
-    jobService.addJob(job);
+    jobService.addJobExp(job);
 
     for (Role role : roles) {
       roleMapper.insertUserRoles(user.getUserid(), role.getRoleid());
